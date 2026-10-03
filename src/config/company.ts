@@ -31,7 +31,9 @@ export const company = {
      * exists, set `photoAvailable` to false and an elegant initials
      * placeholder is shown instead. NEVER use an AI-generated face.
      */
-    photoPath: "/images/founder/dipak-sharma-founder.jpg",
+    // NEXT_PUBLIC_BASE_PATH prefixes the sub-path on GitHub Pages
+    // (set by the deploy workflow); empty everywhere else.
+    photoPath: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/founder/dipak-sharma-founder.jpg`,
     photoAvailable: true,
     photoAlt: "Portrait of Dipak Sharma, Founder and CEO of SHARMA GLOBAL LLC",
   },
