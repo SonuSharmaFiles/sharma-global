@@ -8,7 +8,49 @@ import {
   type ContactFormData,
   type FieldErrors,
 } from "@/lib/validation";
-import { submitContactForm } from "@/app/contact/actions";
+import { company } from "@/config/company";
+
+/**
+ * Sends the message to the delivery endpoint (FormSubmit.co) directly
+ * from the visitor's browser — no server needed, so the form works on
+ * static hosting such as GitHub Pages.
+ */
+async function deliverMessage(
+  data: ContactFormData
+): Promise<"success" | "not-configured" | "error"> {
+  const endpoint = company.contactFormEndpoint;
+  if (!endpoint) return "not-configured";
+  try {
+    const res = await fetch(endpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        _subject: `[Website] ${data.subject.trim().slice(0, 150)}`,
+        _template: "table",
+        _captcha: "false",
+        name: data.fullName.trim().slice(0, 100),
+        email: data.email.trim().slice(0, 254),
+        inquiryType: data.inquiryType,
+        subject: data.subject.trim().slice(0, 150),
+        message: data.message.trim().slice(0, 5000),
+        submittedAt: new Date().toISOString(),
+      }),
+    });
+    if (!res.ok) return "error";
+    // FormSubmit answers { success: "true"|"false" } with HTTP 200;
+    // "false" (e.g. email not yet activated) is a failed delivery.
+    const body = (await res.json().catch(() => null)) as {
+      success?: string | boolean;
+    } | null;
+    if (body && String(body.success) === "false") return "error";
+    return "success";
+  } catch {
+    return "error";
+  }
+}
 
 const initialData: ContactFormData = {
   fullName: "",
@@ -63,16 +105,24 @@ export function ContactForm() {
     const honeypot =
       (new FormData(e.currentTarget).get("website") as string) || "";
     startTransition(async () => {
-      const result = await submitContactForm({ ...data, website: honeypot });
-      if (result.status === "success") {
+      // Honeypot: real users never fill the hidden field; silently
+      // pretend success so bots learn nothing. Nothing is sent.
+      const result = honeypot ? "success" : await deliverMessage(data);
+      if (result === "success") {
         setStatus({ kind: "success" });
         setData(initialData);
-      } else if (result.status === "validation-error") {
-        setErrors(result.fieldErrors ?? {});
-      } else if (result.status === "not-configured") {
-        setStatus({ kind: "not-configured", message: result.message ?? "" });
+      } else if (result === "not-configured") {
+        setStatus({
+          kind: "not-configured",
+          message:
+            "Our online form is not active yet. Please reach us by email instead — see the contact details on this page.",
+        });
       } else {
-        setStatus({ kind: "error", message: result.message ?? "" });
+        setStatus({
+          kind: "error",
+          message:
+            "Something went wrong while sending your message. Please try again, or contact us by email.",
+        });
       }
     });
   }

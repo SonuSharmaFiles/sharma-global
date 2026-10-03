@@ -50,10 +50,21 @@ export const company = {
 
   /* ── Web presence ────────────────────────────────────────────── */
   /**
-   * Set to the final production domain before launch. Used for
-   * canonical URLs, Open Graph tags, sitemap.xml and robots.txt.
+   * The live site address. Used for canonical URLs, Open Graph tags,
+   * sitemap.xml and robots.txt. Update when moving to a custom domain.
    */
-  siteUrl: "https://example.com", // TODO(owner): replace with real domain
+  siteUrl: "https://sonusharmafiles.github.io/sharma-global",
+
+  /**
+   * Where the contact form sends messages (FormSubmit.co endpoint that
+   * forwards to the business email). The form posts to it directly from
+   * the visitor's browser, so it works on static hosting. null disables
+   * the form with an honest "not active" notice.
+   */
+  contactFormEndpoint:
+    "https://formsubmit.co/ajax/business.dipaksharma@gmail.com" as
+      | string
+      | null,
 
   /** Google Search Console verification token (optional). */
   googleSiteVerification: null as string | null,

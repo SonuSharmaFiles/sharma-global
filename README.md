@@ -57,10 +57,14 @@ Already done (October 2026):
 - ✅ Registered address: 30 N Gould St, Ste R, Sheridan, WY 82801, USA
 - ✅ Registration jurisdiction: Wyoming, United States
 - ✅ Founder photo at `public/images/founder/dipak-sharma-founder.jpg`
-- ✅ Contact form delivery via FormSubmit.co (`CONTACT_WEBHOOK_URL` in
-  `.env.local`). **One-time step:** click the "Activate Form" link in
-  the email FormSubmit sent to the business Gmail; until then
-  submissions are not delivered.
+- ✅ Contact form delivery via FormSubmit.co (`contactFormEndpoint` in
+  `src/config/company.ts`; sends directly from the visitor's browser,
+  so it works on GitHub Pages). **One-time step:** click the
+  "Activate Form" link in the email FormSubmit sent to the business
+  Gmail; until then submissions are not delivered.
+- ✅ Live on GitHub Pages:
+  https://sonusharmafiles.github.io/sharma-global/ (auto-deploys on
+  every push to `main` via `.github/workflows/deploy.yml`)
 
 Still to do — edit `src/config/company.ts`:
 
@@ -79,19 +83,21 @@ Still to do — edit `src/config/company.ts`:
 7. **Founder copy approval** — the founder biography and the founder's
    message on `/founder` are drafts; Dipak Sharma should approve the
    wording before launch.
-8. **When deploying:** add `CONTACT_WEBHOOK_URL` as an environment
-   variable in Vercel too (it is only in `.env.local` locally).
+8. **Custom domain (optional):** add it in the repo's Pages settings,
+   then update `siteUrl` in `src/config/company.ts` and remove
+   `BASE_PATH` from `.github/workflows/deploy.yml`.
 
 ---
 
-## Deploying (Vercel)
+## Deployment
 
-1. Push this folder to a GitHub repository.
-2. Import the repo at https://vercel.com/new (defaults work as-is).
-3. Add the `CONTACT_WEBHOOK_URL` environment variable in Vercel →
-   Project → Settings → Environment Variables.
-4. Add your custom domain in Vercel → Domains, and set `siteUrl` in
-   `src/config/company.ts` to match. Redeploy.
+**GitHub Pages (current):** every push to `main` triggers
+`.github/workflows/deploy.yml`, which builds a static export and
+publishes it to https://sonusharmafiles.github.io/sharma-global/.
+
+**Vercel (alternative):** import the repo at https://vercel.com/new —
+defaults work as-is, no environment variables needed. Then set
+`siteUrl` in `src/config/company.ts` to the Vercel/custom domain.
 
 ### Google Search Console
 

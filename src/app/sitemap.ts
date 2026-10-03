@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { company } from "@/config/company";
 
+export const dynamic = "force-static";
+
 /** XML sitemap for search engines — public pages only. */
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
