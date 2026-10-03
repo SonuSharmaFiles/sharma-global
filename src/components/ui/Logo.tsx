@@ -61,21 +61,14 @@ export function LogoLockup({
           variant === "dark" ? "text-brand" : "text-brand-light"
         )}
       />
-      <span className="flex items-baseline gap-2 leading-none whitespace-nowrap">
-        <span
-          className={cn(
-            "font-display text-[16px] font-extrabold tracking-[0.06em]",
-            variant === "dark" ? "text-ink" : "text-footer-text"
-          )}
-        >
-          SHARMA GLOBAL
-        </span>
-        <span
-          className={cn(
-            "text-[11px] font-bold tracking-[0.18em]",
-            variant === "dark" ? "text-brand" : "text-footer-text/80"
-          )}
-        >
+      <span
+        className={cn(
+          "font-display text-[16px] leading-none font-extrabold tracking-[0.06em] whitespace-nowrap",
+          variant === "dark" ? "text-ink" : "text-footer-text"
+        )}
+      >
+        SHARMA GLOBAL{" "}
+        <span className={variant === "dark" ? "text-brand" : undefined}>
           LLC
         </span>
       </span>
