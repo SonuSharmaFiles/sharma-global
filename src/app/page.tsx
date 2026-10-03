@@ -2,24 +2,24 @@ import Link from "next/link";
 import {
   ShoppingBag,
   CookingPot,
-  Globe2,
   HeartHandshake,
   ArrowRight,
   Compass,
   Scale,
   Sprout,
   Store,
-  UtensilsCrossed,
 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { ButtonLink } from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { PlaceholderVisual } from "@/components/ui/PlaceholderVisual";
+import {
+  HeroIllustration,
+  MarketplaceIllustration,
+  Flourish,
+} from "@/components/illustrations/Illustrations";
 import { FeatureCard } from "@/components/cards/FeatureCard";
-import { CategoryCard } from "@/components/cards/CategoryCard";
 import { FounderPortrait } from "@/components/sections/FounderPortrait";
 import { CtaSection } from "@/components/sections/CtaSection";
-import { productCategories } from "@/data/product-categories";
 import { marketplaceDisclaimer } from "@/config/marketplaces";
 import { company } from "@/config/company";
 import { buildMetadata } from "@/lib/seo";
@@ -87,7 +87,7 @@ const principles = [
 export default function HomePage() {
   return (
     <>
-      {/* ── Section 1: Hero ─────────────────────────────────────── */}
+      {/* ── Hero ────────────────────────────────────────────────── */}
       <section className="border-b border-line bg-cream">
         <Container className="grid grid-cols-1 items-center gap-12 py-16 sm:py-20 lg:grid-cols-2 lg:gap-16 lg:py-28">
           <div>
@@ -106,29 +106,22 @@ export default function HomePage() {
               trusted digital marketplaces.
             </p>
             <div className="mt-9 flex flex-wrap gap-4">
-              <ButtonLink href="/products">
-                Explore Our Products
+              <ButtonLink href="/about">
+                Discover Our Company
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </ButtonLink>
-              <ButtonLink href="/about" variant="secondary">
-                Discover Our Company
+              <ButtonLink href="/contact" variant="secondary">
+                Get in Touch
               </ButtonLink>
             </div>
           </div>
-          <div className="relative aspect-[4/3] overflow-hidden rounded-card shadow-lifted lg:aspect-[5/4]">
-            {/*
-              Replace this placeholder with a real lifestyle photo:
-              add /public/images/lifestyle/hero.jpg and swap in <Image>.
-            */}
-            <PlaceholderVisual
-              icon={UtensilsCrossed}
-              label="Lifestyle imagery coming soon"
-            />
+          <div className="relative overflow-hidden rounded-card border border-line bg-white shadow-lifted">
+            <HeroIllustration className="h-auto w-full" />
           </div>
         </Container>
       </section>
 
-      {/* ── Section 2: Company introduction ─────────────────────── */}
+      {/* ── Company introduction ────────────────────────────────── */}
       <section className="py-16 sm:py-24">
         <Container className="grid grid-cols-1 gap-10 lg:grid-cols-5 lg:gap-16">
           <div className="lg:col-span-2">
@@ -162,7 +155,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* ── Section 3: What we do ────────────────────────────────── */}
+      {/* ── What we do ──────────────────────────────────────────── */}
       <section className="border-y border-line bg-card py-16 sm:py-24">
         <Container>
           <SectionHeading
@@ -179,29 +172,8 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* ── Section 4: Product categories ────────────────────────── */}
-      <section className="py-16 sm:py-24">
-        <Container>
-          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-            <SectionHeading
-              eyebrow="Product Focus"
-              title="Built Around Everyday Needs"
-              lede="The Home & Kitchen areas that shape our product selection. These are planned areas of focus — availability varies by marketplace."
-            />
-            <ButtonLink href="/products" variant="secondary" className="shrink-0">
-              View All Categories
-            </ButtonLink>
-          </div>
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {productCategories.slice(0, 3).map((category) => (
-              <CategoryCard key={category.id} category={category} />
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* ── Section 5: Why Sharma Global ─────────────────────────── */}
-      <section className="border-y border-line bg-cream py-16 sm:py-24">
+      {/* ── Why Sharma Global ───────────────────────────────────── */}
+      <section className="border-b border-line bg-cream py-16 sm:py-24">
         <Container>
           <SectionHeading
             eyebrow="Our Principles"
@@ -228,7 +200,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* ── Section 6: Marketplace presence ──────────────────────── */}
+      {/* ── Marketplace presence ────────────────────────────────── */}
       <section className="py-16 sm:py-24">
         <Container className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div>
@@ -247,13 +219,13 @@ export default function HomePage() {
               profiles are live. {marketplaceDisclaimer}
             </p>
           </div>
-          <div className="relative aspect-[4/3] overflow-hidden rounded-card">
-            <PlaceholderVisual icon={Globe2} label="Marketplace presence" tone="brand" />
+          <div className="relative overflow-hidden rounded-card bg-brand shadow-lifted">
+            <MarketplaceIllustration className="h-auto w-full" />
           </div>
         </Container>
       </section>
 
-      {/* ── Section 7: Founder spotlight ─────────────────────────── */}
+      {/* ── Founder spotlight ───────────────────────────────────── */}
       <section className="border-y border-line bg-card py-16 sm:py-24">
         <Container className="grid grid-cols-1 items-center gap-12 lg:grid-cols-5">
           <FounderPortrait className="aspect-[4/5] w-full max-w-sm lg:col-span-2" />
@@ -290,9 +262,10 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* ── Section 8: Vision ────────────────────────────────────── */}
+      {/* ── Vision ──────────────────────────────────────────────── */}
       <section className="py-16 sm:py-24">
         <Container className="max-w-3xl text-center">
+          <Flourish className="mx-auto mb-8 h-6 w-40" />
           <SectionHeading
             eyebrow="Looking Ahead"
             title="Building a Business for Everyday Living"
@@ -302,7 +275,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* ── Sections 9–10: Contact CTA + footer (footer is global) ── */}
+      {/* ── Contact CTA ─────────────────────────────────────────── */}
       <CtaSection />
     </>
   );

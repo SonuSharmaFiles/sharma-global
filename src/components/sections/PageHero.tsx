@@ -1,6 +1,7 @@
 import { Container } from "@/components/ui/Container";
+import { CornerOrnament } from "@/components/illustrations/Illustrations";
 
-/** Shared editorial hero for interior pages. */
+/** Shared editorial hero for interior pages, with a decorative corner motif. */
 export function PageHero({
   eyebrow,
   title,
@@ -11,8 +12,9 @@ export function PageHero({
   lede?: string;
 }) {
   return (
-    <section className="border-b border-line bg-cream">
-      <Container className="py-16 sm:py-24">
+    <section className="relative overflow-hidden border-b border-line bg-cream">
+      <CornerOrnament className="pointer-events-none absolute top-0 right-0 h-full w-72 sm:w-96" />
+      <Container className="relative py-16 sm:py-24">
         <div className="max-w-3xl">
           {eyebrow && (
             <p className="mb-4 text-xs font-bold tracking-[0.22em] uppercase text-gold">

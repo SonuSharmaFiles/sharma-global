@@ -112,12 +112,15 @@ export default function PrivacyPolicyPage() {
       <LegalSection number={8} title="Cookies and Similar Technologies">
         <p>
           This website currently uses only the essential technologies needed
-          for it to function. It does not set advertising or cross-site
-          tracking cookies. For full details, see our{" "}
-          <a href="/cookie-policy" className="font-semibold text-brand underline underline-offset-2">
-            Cookie Policy
-          </a>
-          .
+          for it to function. It sets no advertising cookies, no analytics
+          cookies, and no cross-site tracking cookies — which is also why no
+          cookie consent banner is shown.
+        </p>
+        <p>
+          If analytics or similar tools are added in the future, this section
+          will be updated to name the provider and explain what is collected,
+          and consent will be requested where the law requires it. You can
+          manage or delete cookies at any time through your browser settings.
         </p>
       </LegalSection>
 

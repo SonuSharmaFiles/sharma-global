@@ -107,9 +107,9 @@ Still to do — edit `src/config/company.ts`:
 
 - **No shopping cart / checkout** — this is a corporate site; sales
   happen on marketplaces.
-- **No analytics or tracking cookies** — the Cookie Policy reflects
-  that honestly. If you add analytics later, update the Cookie Policy
-  and Privacy Policy and add a consent banner first.
+- **No analytics or tracking cookies** — the Privacy Policy reflects
+  that honestly. If you add analytics later, update the Privacy Policy
+  and add a consent banner first.
 - **No invented facts** — no fake testimonials, statistics, addresses,
   or registration numbers anywhere.
 

@@ -28,10 +28,6 @@ const groups: Array<{ heading: string; links: Array<{ label: string; href: strin
     ],
   },
   {
-    heading: "Products",
-    links: [{ label: "Products", href: "/products" }],
-  },
-  {
     heading: "Contact",
     links: [{ label: "Contact Us", href: "/contact" }],
   },

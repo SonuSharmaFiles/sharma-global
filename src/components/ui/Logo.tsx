@@ -1,9 +1,9 @@
 import { cn } from "@/lib/utils";
 
 /**
- * SHARMA GLOBAL brand mark: an original geometric monogram built from
- * two interlocking arcs (an abstract "S" and "G") suggesting connection
- * and global commerce, with a small gold node marking a point of exchange.
+ * SHARMA GLOBAL brand mark: a hand-drawn "S" monogram wrapped by a
+ * golden orbit — commerce moving around the world. Original artwork,
+ * scalable from favicon size up to print.
  */
 export function BrandMark({
   className,
@@ -20,28 +20,31 @@ export function BrandMark({
       className={className}
       fill="none"
     >
-      <rect width="48" height="48" rx="12" fill="currentColor" />
-      {/* Upper arc — abstract S curve */}
+      <rect width="48" height="48" rx="14" fill="currentColor" />
+      {/* Golden orbit */}
+      <ellipse
+        cx="24"
+        cy="24"
+        rx="17"
+        ry="7.2"
+        transform="rotate(-28 24 24)"
+        stroke="#C99A56"
+        strokeWidth="1.7"
+      />
+      {/* The S */}
       <path
-        d="M33 15c-2.4-2.5-6-3.6-9.6-2.7C18 13.6 15 18.4 16.3 23.1c.9 3.2 3.5 5.5 6.7 6.1"
+        d="M30.8 15.6c-2.2-2.6-6.8-3.2-9.8-1.2-3 2-3.2 5.8-.4 7.9 1 .8 2.3 1.3 3.7 1.7 1.4.4 2.7.9 3.7 1.7 2.8 2.1 2.6 5.9-.4 7.9-3 2-7.6 1.4-9.8-1.2"
         stroke="#F5F4EF"
-        strokeWidth="3"
+        strokeWidth="3.4"
         strokeLinecap="round"
       />
-      {/* Lower arc — abstract G curve */}
-      <path
-        d="M15 33c2.4 2.5 6 3.6 9.6 2.7 5.4-1.3 8.4-6.1 7.1-10.8-.4-1.3-1-2.5-1.9-3.4"
-        stroke="#F5F4EF"
-        strokeWidth="3"
-        strokeLinecap="round"
-      />
-      {/* Gold node — the point of exchange */}
-      <circle cx="24" cy="24" r="2.6" fill="#C99A56" />
+      {/* Satellite on the orbit */}
+      <circle cx="38.6" cy="16.4" r="2.5" fill="#C99A56" />
     </svg>
   );
 }
 
-/** Full word-mark lockup used in the header and footer. */
+/** Single-line word-mark lockup used in the header and footer. */
 export function LogoLockup({
   variant = "dark",
   className,
@@ -54,25 +57,20 @@ export function LogoLockup({
     <span className={cn("flex items-center gap-3", className)}>
       <BrandMark
         className={cn(
-          "h-9 w-9 shrink-0",
+          "h-10 w-10 shrink-0",
           variant === "dark" ? "text-brand" : "text-brand-light"
         )}
       />
-      <span className="flex flex-col leading-none">
+      <span className="flex items-baseline gap-2 leading-none whitespace-nowrap">
         <span
           className={cn(
-            "font-display text-[15px] font-extrabold tracking-[0.08em]",
+            "font-display text-[16px] font-extrabold tracking-[0.06em]",
             variant === "dark" ? "text-ink" : "text-footer-text"
           )}
         >
           SHARMA GLOBAL
         </span>
-        <span
-          className={cn(
-            "mt-1 text-[10px] font-semibold tracking-[0.32em]",
-            variant === "dark" ? "text-muted" : "text-footer-text/60"
-          )}
-        >
+        <span className="text-[11px] font-bold tracking-[0.18em] text-gold">
           LLC
         </span>
       </span>

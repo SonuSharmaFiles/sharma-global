@@ -8,15 +8,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/", priority: 1 },
     { path: "/about", priority: 0.9 },
     { path: "/our-business", priority: 0.8 },
-    { path: "/products", priority: 0.9 },
     { path: "/marketplaces", priority: 0.8 },
     { path: "/founder", priority: 0.8 },
     { path: "/contact", priority: 0.7 },
     { path: "/privacy-policy", priority: 0.3 },
     { path: "/terms-of-service", priority: 0.3 },
     { path: "/disclaimer", priority: 0.3 },
-    { path: "/cookie-policy", priority: 0.3 },
-    { path: "/accessibility", priority: 0.3 },
     { path: "/sitemap", priority: 0.2 },
   ];
 
