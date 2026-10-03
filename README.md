@@ -50,40 +50,37 @@ config file — never a page component.
 
 ## ✅ Owner checklist before launch
 
-Everything below is currently a placeholder (`null`) and hidden from
-the public site until you fill it in. Edit `src/config/company.ts`:
+Already done (October 2026):
+
+- ✅ Business email: business.dipaksharma@gmail.com
+- ✅ Phones: +977 9829951058 (Nepal), +1 (307) 200-2803 (USA)
+- ✅ Registered address: 30 N Gould St, Ste R, Sheridan, WY 82801, USA
+- ✅ Registration jurisdiction: Wyoming, United States
+- ✅ Founder photo at `public/images/founder/dipak-sharma-founder.jpg`
+- ✅ Contact form delivery via FormSubmit.co (`CONTACT_WEBHOOK_URL` in
+  `.env.local`). **One-time step:** click the "Activate Form" link in
+  the email FormSubmit sent to the business Gmail; until then
+  submissions are not delivered.
+
+Still to do — edit `src/config/company.ts`:
 
 1. **`siteUrl`** — your real domain (required for SEO/sitemap/OG tags).
-2. **`businessEmail`** — official verified email.
-3. **`registrationJurisdiction`** — e.g. "Wyoming, United States".
-4. **`registeredAddress`** — registered/business address (only if you
-   want it public).
-5. **`businessPhone` / `businessHours`** — only if they exist.
-6. **Social links** in `company.social`.
-7. **Policy dates** — confirm `policyEffectiveDate` / `policyLastUpdated`.
-
-Then:
-
-8. **Founder photo** — add the real photograph at
-   `public/images/founder/dipak-sharma-founder.jpg`, update
-   `founder.photoPath` and set `founder.photoAvailable: true`.
-   (Strip EXIF/location metadata from the photo first.)
-9. **Amazon storefront** — when your seller profile is live, set `url`
+2. **Social links** in `company.social`.
+3. **Policy dates** — confirm `policyEffectiveDate` / `policyLastUpdated`.
+4. **Amazon storefront** — when your seller profile is live, set `url`
    in `src/config/marketplaces.ts`. The "View Store" button appears
    automatically.
-10. **Lifestyle images** — add licensed photos to
-    `public/images/lifestyle/` and `public/images/products/`, then set
-    the `image` paths in `src/data/product-categories.ts`. Placeholder
-    graphics are swapped automatically.
-11. **Contact form** — copy `.env.example` to `.env.local` and set
-    `CONTACT_WEBHOOK_URL` (Formspree/Web3Forms/your own endpoint).
-    Until then the form politely tells visitors it is not active.
-12. **Legal review** — the Privacy Policy, Terms, and Disclaimer
-    contain clearly marked "to be confirmed" notes (jurisdiction,
-    governing law). Have them reviewed once the jurisdiction is known.
-13. **Founder copy approval** — the founder biography and the founder's
-    message on `/founder` are drafts; Dipak Sharma should approve the
-    wording before launch.
+5. **Lifestyle images** — add licensed photos to
+   `public/images/lifestyle/` and `public/images/products/`, then set
+   the `image` paths in `src/data/product-categories.ts`. Placeholder
+   graphics are swapped automatically.
+6. **Legal review** — the Terms still have one marked note (the exact
+   governing-law clause needs a legal adviser's review).
+7. **Founder copy approval** — the founder biography and the founder's
+   message on `/founder` are drafts; Dipak Sharma should approve the
+   wording before launch.
+8. **When deploying:** add `CONTACT_WEBHOOK_URL` as an environment
+   variable in Vercel too (it is only in `.env.local` locally).
 
 ---
 

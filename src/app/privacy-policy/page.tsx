@@ -32,12 +32,23 @@ export default function PrivacyPolicyPage() {
       <LegalSection number={2} title="Company Information">
         <p>
           This website is operated by SHARMA GLOBAL LLC, a limited liability
-          company. The founder of the company is based in Nepal.
+          company
+          {company.registrationJurisdiction
+            ? ` registered in ${company.registrationJurisdiction}`
+            : ""}
+          . The founder of the company is based in Nepal.
         </p>
-        <VerifyNote>
-          The company&apos;s registration jurisdiction and registered address
-          will be published here once verified by the owner.
-        </VerifyNote>
+        {company.registeredAddress && (
+          <p>
+            Registered address: {company.registeredAddress}.
+          </p>
+        )}
+        {!company.registrationJurisdiction && (
+          <VerifyNote>
+            The company&apos;s registration jurisdiction and registered
+            address will be published here once verified by the owner.
+          </VerifyNote>
+        )}
       </LegalSection>
 
       <LegalSection number={3} title="Scope of This Policy">

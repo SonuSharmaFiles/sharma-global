@@ -5,6 +5,7 @@ import {
   type ContactFormData,
   type FieldErrors,
 } from "@/lib/validation";
+import { company } from "@/config/company";
 
 export interface SubmitResult {
   status: "success" | "validation-error" | "not-configured" | "error";
@@ -74,9 +75,21 @@ export async function submitContactForm(
   try {
     const res = await fetch(webhookUrl, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        // FormSubmit rejects requests that carry no browser-style origin,
+        // and server actions don't send one by default.
+        Origin: company.siteUrl,
+        Referer: `${company.siteUrl}/contact`,
+      },
       body: JSON.stringify({
-        fullName: data.fullName.trim().slice(0, 100),
+        // The extra underscore fields configure FormSubmit.co (our default
+        // delivery service); any other webhook simply ignores them.
+        _subject: `[Website] ${data.subject.trim().slice(0, 150)}`,
+        _template: "table",
+        _captcha: "false",
+        name: data.fullName.trim().slice(0, 100),
         email: data.email.trim().slice(0, 254),
         inquiryType: data.inquiryType,
         subject: data.subject.trim().slice(0, 150),
@@ -85,6 +98,14 @@ export async function submitContactForm(
       }),
     });
     if (!res.ok) throw new Error(`Webhook responded ${res.status}`);
+    // FormSubmit returns { success: "true"|"false", message } with HTTP 200;
+    // treat an explicit "false" (e.g. email not yet activated) as a failure.
+    const body = (await res.json().catch(() => null)) as {
+      success?: string | boolean;
+    } | null;
+    if (body && String(body.success) === "false") {
+      throw new Error("Delivery service reported failure");
+    }
     return { status: "success" };
   } catch {
     return {

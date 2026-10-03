@@ -32,16 +32,20 @@ export const company = {
      * placeholder is shown instead. NEVER use an AI-generated face.
      */
     photoPath: "/images/founder/dipak-sharma-founder.jpg",
-    photoAvailable: false,
+    photoAvailable: true,
     photoAlt: "Portrait of Dipak Sharma, Founder and CEO of SHARMA GLOBAL LLC",
   },
 
-  /* ── Details requiring owner verification (null = hidden) ───── */
-  // TODO(owner): fill in each value, then the site shows it automatically.
-  registrationJurisdiction: null as string | null, // e.g. "Wyoming, United States"
-  registeredAddress: null as string | null, // registered agent / business address
-  businessEmail: null as string | null, // e.g. "contact@sharmaglobal.com"
-  businessPhone: null as string | null, // only if an official number exists
+  /* ── Verified business details (null = hidden from the site) ── */
+  registrationJurisdiction: "Wyoming, United States" as string | null,
+  registeredAddress:
+    "30 N Gould St, Ste R, Sheridan, WY 82801, USA" as string | null,
+  businessEmail: "business.dipaksharma@gmail.com" as string | null,
+  /** Official phone numbers, shown on the Contact page and footer. */
+  businessPhones: [
+    { label: "Nepal", number: "+977 9829951058" },
+    { label: "USA", number: "+1 (307) 200-2803" },
+  ] as Array<{ label: string; number: string }>,
   businessHours: null as string | null, // e.g. "Mon–Fri, 9:00–17:00 NPT"
 
   /* ── Web presence ────────────────────────────────────────────── */

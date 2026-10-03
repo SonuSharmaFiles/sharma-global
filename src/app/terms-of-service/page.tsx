@@ -173,10 +173,12 @@ export default function TermsPage() {
       </LegalSection>
 
       <LegalSection number={18} title="Governing Law and Jurisdiction">
+        <p>
+          SHARMA GLOBAL LLC is registered in Wyoming, United States.
+        </p>
         <VerifyNote>
-          The governing law and jurisdiction for these Terms will be
-          specified after the Company&apos;s registration jurisdiction is
-          confirmed and the appropriate provision has been reviewed. Until
+          The specific governing-law and jurisdiction clause for these Terms
+          will be added after review by a qualified legal adviser. Until
           then, no specific governing law is stated here.
         </VerifyNote>
       </LegalSection>

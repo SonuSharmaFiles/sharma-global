@@ -92,6 +92,16 @@ export function Footer() {
                   Official contact details coming soon
                 </li>
               )}
+              {company.businessPhones.map((p) => (
+                <li key={p.number}>
+                  <a
+                    href={`tel:${p.number.replace(/[^+\d]/g, "")}`}
+                    className="transition-colors hover:text-white"
+                  >
+                    {p.number} ({p.label})
+                  </a>
+                </li>
+              ))}
               {socialEntries.map((s) => (
                 <li key={s.label}>
                   <a

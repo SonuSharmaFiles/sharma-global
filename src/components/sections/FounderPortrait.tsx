@@ -26,6 +26,7 @@ export function FounderPortrait({ className }: { className?: string }) {
           src={founder.photoPath}
           alt={founder.photoAlt}
           fill
+          priority
           sizes="(max-width: 1024px) 100vw, 40vw"
           className="object-cover"
         />

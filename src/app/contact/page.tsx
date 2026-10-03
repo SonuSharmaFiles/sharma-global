@@ -1,4 +1,4 @@
-import { Mail, MapPin, Clock } from "lucide-react";
+import { Mail, MapPin, Clock, Phone } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/sections/PageHero";
 import { ContactForm } from "@/components/forms/ContactForm";
@@ -53,6 +53,28 @@ export default function ContactPage() {
                   )}
                 </div>
               </li>
+              {company.businessPhones.length > 0 && (
+                <li className="flex gap-4">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand/5">
+                    <Phone className="h-5 w-5 text-brand" aria-hidden="true" />
+                  </span>
+                  <div>
+                    <h3 className="text-sm font-bold text-ink">Phone</h3>
+                    {company.businessPhones.map((p) => (
+                      <a
+                        key={p.number}
+                        href={`tel:${p.number.replace(/[^+\d]/g, "")}`}
+                        className="mt-1 block text-sm font-semibold text-brand underline underline-offset-2"
+                      >
+                        {p.number}{" "}
+                        <span className="font-normal text-muted">
+                          ({p.label})
+                        </span>
+                      </a>
+                    ))}
+                  </div>
+                </li>
+              )}
               <li className="flex gap-4">
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand/5">
                   <MapPin className="h-5 w-5 text-brand" aria-hidden="true" />
