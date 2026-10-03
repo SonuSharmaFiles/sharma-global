@@ -70,7 +70,12 @@ export function LogoLockup({
         >
           SHARMA GLOBAL
         </span>
-        <span className="text-[11px] font-bold tracking-[0.18em] text-gold">
+        <span
+          className={cn(
+            "text-[11px] font-bold tracking-[0.18em]",
+            variant === "dark" ? "text-brand" : "text-footer-text/80"
+          )}
+        >
           LLC
         </span>
       </span>
