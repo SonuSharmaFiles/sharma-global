@@ -91,10 +91,6 @@ export default function HomePage() {
       <section className="border-b border-line bg-cream">
         <Container className="grid grid-cols-1 items-center gap-12 py-16 sm:py-20 lg:grid-cols-2 lg:gap-16 lg:py-28">
           <div>
-            <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-line bg-white px-4 py-1.5 text-xs font-semibold tracking-wide text-brand">
-              <span className="h-1.5 w-1.5 rounded-full bg-gold" aria-hidden="true" />
-              Home &amp; Kitchen · E-commerce
-            </p>
             <h1 className="font-display text-4xl font-extrabold tracking-tight text-balance text-ink sm:text-5xl lg:text-6xl">
               Everyday Essentials.
               <br />
