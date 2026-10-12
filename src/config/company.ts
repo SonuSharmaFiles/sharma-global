@@ -55,7 +55,7 @@ export const company = {
    * The live site address. Used for canonical URLs, Open Graph tags,
    * sitemap.xml and robots.txt. Update when moving to a custom domain.
    */
-  siteUrl: "https://sonusharmafiles.github.io/sharma-global",
+  siteUrl: "https://sharmagloballlc.com",
 
   /**
    * Where the contact form sends messages (FormSubmit.co endpoint that

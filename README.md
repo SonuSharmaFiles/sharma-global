@@ -63,7 +63,7 @@ Already done (October 2026):
   "Activate Form" link in the email FormSubmit sent to the business
   Gmail; until then submissions are not delivered.
 - ✅ Live on GitHub Pages:
-  https://sonusharmafiles.github.io/sharma-global/ (auto-deploys on
+  https://sharmagloballlc.com/ (auto-deploys on
   every push to `main` via `.github/workflows/deploy.yml`)
 
 Still to do — edit `src/config/company.ts`:
@@ -93,7 +93,7 @@ Still to do — edit `src/config/company.ts`:
 
 **GitHub Pages (current):** every push to `main` triggers
 `.github/workflows/deploy.yml`, which builds a static export and
-publishes it to https://sonusharmafiles.github.io/sharma-global/.
+publishes it to https://sharmagloballlc.com/.
 
 **Vercel (alternative):** import the repo at https://vercel.com/new —
 defaults work as-is, no environment variables needed. Then set
