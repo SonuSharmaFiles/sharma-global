@@ -15,6 +15,8 @@ export function BrandMark({
   return (
     <svg
       viewBox="0 0 48 48"
+      width="40"
+      height="40"
       role="img"
       aria-label={title}
       className={className}

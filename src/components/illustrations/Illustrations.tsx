@@ -201,6 +201,8 @@ export function CornerOrnament({
   return (
     <svg
       viewBox="0 0 320 320"
+      width="320"
+      height="320"
       className={className}
       aria-hidden="true"
       fill="none"
@@ -223,6 +225,8 @@ export function Flourish({ className }: { className?: string }) {
   return (
     <svg
       viewBox="0 0 160 24"
+      width="160"
+      height="24"
       className={className}
       aria-hidden="true"
       fill="none"
